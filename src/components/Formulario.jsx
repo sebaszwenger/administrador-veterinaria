@@ -176,7 +176,6 @@ const Formulario = ({ setCitas, citas, editarCita, setEditarCita }) => {
           }
         />
       </form>
-      )
     </div>
   );
 };
