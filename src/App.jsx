@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Formulario from "./components/Formulario";
 import Header from "./components/Header";
 import ListadoPacientes from "./components/ListadoPacientes";
@@ -10,6 +10,19 @@ function App() {
 
   //State que maneja la cita a editar
   const [editarCita, setEditarCita] = useState({});
+
+  //Recupera el local storage cuando se carga el componente
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem("pacientes"));
+    if (storage.length > 0) {
+      setCitas(storage);
+    }
+  }, []);
+
+  //Almacena las citas en el Local Storage
+  useEffect(() => {
+    localStorage.setItem("pacientes", JSON.stringify(citas));
+  }, [citas]);
 
   return (
     <>
