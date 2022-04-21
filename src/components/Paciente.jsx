@@ -10,10 +10,13 @@ const Paciente = ({ cita, citas, setCitas, setEditarCita }) => {
 
   //Elimina la cita seleccionada
   const borrarCita = (e) => {
-    const citasActualizadas = citas.filter(
-      (elemento) => elemento.id !== cita.id
-    );
-    setCitas(citasActualizadas);
+    const respuesta = confirm("Deseas eliminar este paciente?");
+    if (respuesta) {
+      const citasActualizadas = citas.filter(
+        (elemento) => elemento.id !== cita.id
+      );
+      setCitas(citasActualizadas);
+    }
   };
 
   return (
