@@ -13,7 +13,7 @@ function App() {
 
   //Recupera el local storage cuando se carga el componente
   useEffect(() => {
-    const storage = JSON.parse(localStorage.getItem("pacientes"));
+    const storage = JSON.parse(localStorage.getItem("pacientes")) ?? [];
     if (storage.length > 0) {
       setCitas(storage);
     }
